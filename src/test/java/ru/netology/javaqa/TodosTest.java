@@ -74,19 +74,16 @@ public class TodosTest {
         todos.add(meeting);
 
         Task[] result1 = todos.search("гулять");
-        Assertions.assertEquals(1, result1.length);
-        Assertions.assertEquals(task1, result1[0]);
+        Assertions.assertArrayEquals(new Task[]{ task1 }, result1);
 
         Task[] result2 = todos.search("изучить инструкцию");
-        Assertions.assertEquals(1, result2.length);
-        Assertions.assertEquals(epic, result2[0]);
+        Assertions.assertArrayEquals(new Task[]{ epic }, result2);
 
         Task[] result3 = todos.search("Командый проект");
-        Assertions.assertArrayEquals(new Task[]{epic, meeting}, result3);
-
-
+        Assertions.assertArrayEquals(new Task[]{ epic, meeting }, result3);
+        
         Task[] result4 = todos.search("Бросить учебу");
-        Assertions.assertEquals(0, result4.length);
+        Assertions.assertArrayEquals(new Task[]{}, result4);
     }
 
 }
